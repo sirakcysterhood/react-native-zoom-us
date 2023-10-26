@@ -112,13 +112,7 @@ RCT_EXPORT_METHOD(
     if (authService)
     {
       authService.delegate = self;
-      if (jwtToken != nil) {
-        authService.jwtToken = data[@"jwtToken"];
-      } else {
-        authService.clientKey = data[@"clientKey"];
-        authService.clientSecret = data[@"clientSecret"];
-      }
-
+      authService.jwtToken = data[@"jwtToken"];
       [authService sdkAuth];
     } else {
       NSLog(@"onZoomSDKInitializeResult, no authService");
